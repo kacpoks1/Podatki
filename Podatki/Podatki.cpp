@@ -12,7 +12,7 @@ class podatek {
 
 };
 
-class pit : podatek {
+class pit : public podatek {
     
     public:
 
@@ -30,7 +30,7 @@ class pit : podatek {
             
             else {
                 
-                double roznica = 0
+                double roznica = 0;
                 
                 roznica = (kwota - 120000);
                 return (roznica * 0.32) + 10800;
@@ -40,7 +40,7 @@ class pit : podatek {
           }
 };
 
-class cit : podatek {
+class cit : public podatek {
 
     public:
         
@@ -51,20 +51,20 @@ class cit : podatek {
         }
 };
 
-class spadek : podatek {
+class spadek : public podatek {
 
     public:
 
         double obliczPodatek(double kwota)
         {
-            int roznica = 0;
+            double roznica = 0;
             roznica = kwota - 11128;
             return (roznica * 0.05) + 333.90;
 
         }
 };
 
-class vat : podatek {
+class vat : public podatek {
     
     public:
         
@@ -91,42 +91,46 @@ int main()
     cout << "Z jakiej kwoty chcesz obliczyæ ten podatek? Wpisz: ";
     cin >> kwota;
 
-    typ* podatekPit = new pit();
-    typ* podatekCit = new cit();
-    typ* podatekSpadek = new spadek();
-    typ* podatekVat = new vat();
+ //   typ* podatekPit = new pit();
+ //   typ* podatekCit = new cit();
+ //   typ* podatekSpadek = new spadek();
+//    typ* podatekVat = new vat();
 
 
     switch (typ)
     {
-        case 'cit': {
+        case 'pit': {
             
-            cout << pit->obliczPodatek(kwota);
-            
-            if (kwota <= 0) {
-                cout << "nic nie p³acisz :)";
-            }
-            else {
+            kwota* podatekPit = new pit();
 
-                cout << "Podatek wynosi: " << kwota;
-            }
+          //  cout << pit.obliczPodatek(kwota);
+            
         }
             break;
 
         case 'cit': {
-            cout << cit->obliczPodatek(kwota);
+            
+            kwota* podatekCit = new cit();
+
+            //cout << cit.obliczPodatek(kwota);
         }
             
             break;
 
         case 'spd': {
-            cout << spadek->obliczSpadek(kwota);
+            
+            kwota* podatekSpadek = new spadek();
+            
+            //cout << spadek.obliczSpadek(kwota);
         }
             
             break;
 
         case 'vat': {
-            cout << vat->obliczPodatek(kwota);
+
+            kwota* podatekVat = new vat();
+
+            //cout << vat.obliczPodatek(kwota);
         }
             
             break;
