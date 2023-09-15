@@ -1,6 +1,6 @@
 #include <iostream>
 #include <locale.h>
-#include "Podatki.h"
+
 
 using namespace std;
 
