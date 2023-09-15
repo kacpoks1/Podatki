@@ -6,72 +6,84 @@ using namespace std;
 
 class podatek {
 
-    public:
+public:
 
-        virtual double obliczPodatek(double kwota) = 0;
+    virtual double obliczPodatek(double& kwota) = 0;
 
 };
 
 class pit : public podatek {
-    
-    public:
 
-        double obliczPodatek(double kwota)
+public:
 
-          {
-            if (kwota <= 120000) {
-                
-                
-                return (kwota * 0.12) - 3600;
+    double obliczPodatek(double& kwota)
 
+    {
+        if (kwota <= 120000) {
 
+            double x;
+            x = (kwota * 0.12) - 3600;
+
+            if (x <= 0) {
+                cout << "nic nie p³acisz";
+                return 0;
             }
-           
-            
             else {
                 
-                double roznica = 0;
-                
-                roznica = (kwota - 120000);
-                return (roznica * 0.32) + 10800;
-                
-
+                cout << x;
+                return 0;
             }
-          }
+
+           
+
+        }
+
+
+        else {
+
+            double roznica = 0;
+
+            roznica = (kwota - 120000);
+            cout << (roznica * 0.32) + 10800;
+
+            return 0;
+        }
+    }
 };
 
 class cit : public podatek {
 
-    public:
-        
-        double obliczPodatek(double kwota) 
-        {
-            return kwota * 0.02;
+public:
 
-        }
+    double obliczPodatek(double& kwota)
+    {
+        cout <<  (kwota * 0.02);
+        return 0;
+    }
 };
 
 class spadek : public podatek {
 
-    public:
+public:
 
-        double obliczPodatek(double kwota)
-        {
-            double roznica = 0;
-            roznica = kwota - 11128;
-            return (roznica * 0.05) + 333.90;
-
-        }
+    double obliczPodatek(double& kwota)
+    {
+        double roznica = 0;
+        roznica = kwota - 11128;
+        cout <<  (roznica * 0.05) + 333.90;
+        return 0;
+    }
 };
 
 class vat : public podatek {
+
+public:
     
-    public:
-        
-        double obliczPodatek(double kwota)
-        {
-            return kwota = 0.23;
-        }
+    double obliczPodatek(double& kwota)
+    {
+        cout << (kwota * 0.23);
+        return 0;
+    }
 };
 
 int main()
@@ -84,64 +96,77 @@ int main()
     double podatekCit;
     double podatekSpadek;
     double podatekVat;
-
-
-    cout << "Jaki podatek chcesz obliczyæ? PIT, CIT, Spadkowy (spd) czy VAT. Wpisz: ";
-    cin >> typ;
-    cout << "Z jakiej kwoty chcesz obliczyæ ten podatek? Wpisz: ";
+    
+    
+   cout << "Z jakiej kwoty chcesz obliczyæ podatek? Wpisz: ";
     cin >> kwota;
 
- //   typ* podatekPit = new pit();
- //   typ* podatekCit = new cit();
- //   typ* podatekSpadek = new spadek();
-//    typ* podatekVat = new vat();
+    cout << "Jaki podatek chcesz obliczyæ? PIT (p), CIT (c), Spadkowy (spd) czy VAT (v). Wpisz: ";
+    cin >> typ;
+     
+
+    //   typ* podatekPit = new pit();
+    //   typ* podatekCit = new cit();
+    //   typ* podatekSpadek = new spadek();
+   //    typ* podatekVat = new vat();
 
 
     switch (typ)
     {
-        case 'pit': {
-            
-            kwota* podatekPit = new pit();
+    case 'p': {
 
-          //  cout << pit.obliczPodatek(kwota);
-            
-        }
-            break;
+        //kwota* podatekPit = new pit();
 
-        case 'cit': {
-            
-            kwota* podatekCit = new cit();
+        pit obiekt;
 
-            //cout << cit.obliczPodatek(kwota);
-        }
-            
-            break;
 
-        case 'spd': {
-            
-            kwota* podatekSpadek = new spadek();
-            
-            //cout << spadek.obliczSpadek(kwota);
-        }
-            
-            break;
+        obiekt.obliczPodatek(kwota);
 
-        case 'vat': {
 
-            kwota* podatekVat = new vat();
 
-            //cout << vat.obliczPodatek(kwota);
-        }
-            
-            break;
 
-        default:
-            break;
+        break;
     }
 
+    case 'c': {
+
+        //kwota* podatekCit = new cit();
+
+        cit obiekt;
+
+        obiekt.obliczPodatek(kwota);
 
 
+
+        break;
+    }
+    case 's': {
+
+        //kwota* podatekSpadek = new spadek();
+
+        spadek obiekt;
+
+        obiekt.obliczPodatek(kwota);
+
+        break;
+    }
+    case 'v': {
+
+        //kwota* podatekVat = new vat();
+
+        vat obiekt;
+
+        obiekt.obliczPodatek(kwota);
+
+
+
+        break;
+    }
+    default:
+        break;
+
+
+
+    }
 
 }
-
-
