@@ -34,8 +34,6 @@ public:
                 return 0;
             }
 
-           
-
         }
 
 
@@ -51,7 +49,7 @@ public:
     }
 };
 
-class cit : public podatek {
+class cit  {
 
 public:
 
@@ -62,7 +60,7 @@ public:
     }
 };
 
-class spadek : public podatek {
+class spadek {
 
 public:
 
@@ -75,7 +73,7 @@ public:
     }
 };
 
-class vat : public podatek {
+class vat  {
 
 public:
     
@@ -98,51 +96,34 @@ int main()
     double podatekVat;
     
     
-   cout << "Z jakiej kwoty chcesz obliczyæ podatek? Wpisz: ";
+    cout << "Z jakiej kwoty chcesz obliczyæ podatek? Wpisz: ";
     cin >> kwota;
 
     cout << "Jaki podatek chcesz obliczyæ? PIT (p), CIT (c), Spadkowy (spd) czy VAT (v). Wpisz: ";
     cin >> typ;
      
 
-    //   typ* podatekPit = new pit();
-    //   typ* podatekCit = new cit();
-    //   typ* podatekSpadek = new spadek();
-   //    typ* podatekVat = new vat();
-
 
     switch (typ)
     {
     case 'p': {
 
-        //kwota* podatekPit = new pit();
-
         pit obiekt;
 
-
         obiekt.obliczPodatek(kwota);
-
-
-
 
         break;
     }
 
     case 'c': {
 
-        //kwota* podatekCit = new cit();
-
         cit obiekt;
 
         obiekt.obliczPodatek(kwota);
 
-
-
         break;
     }
     case 's': {
-
-        //kwota* podatekSpadek = new spadek();
 
         spadek obiekt;
 
@@ -152,20 +133,14 @@ int main()
     }
     case 'v': {
 
-        //kwota* podatekVat = new vat();
-
         vat obiekt;
 
         obiekt.obliczPodatek(kwota);
-
-
 
         break;
     }
     default:
         break;
-
-
 
     }
 
