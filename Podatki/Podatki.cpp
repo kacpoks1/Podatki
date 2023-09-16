@@ -58,7 +58,6 @@ public:
 
     double obliczPodatek(double& kwota)
     {
-        double roznica = kwota - 11128;
        
         return ((kwota - 11128) * 0.05) + 333.90;
     }
