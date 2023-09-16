@@ -25,13 +25,11 @@ public:
             x = (kwota * 0.12) - 3600;
 
             if (x <= 0) {
-                cout << "nic nie p³acisz";
+                
                 return 0;
             }
             else {
-                
-                cout << x;
-                return 0;
+                return x;
             }
 
         }
@@ -42,9 +40,8 @@ public:
             double roznica = 0;
 
             roznica = (kwota - 120000);
-            cout << (roznica * 0.32) + 10800;
 
-            return 0;
+            return (roznica * 0.32) + 10800;
         }
     }
 };
@@ -53,10 +50,9 @@ class cit  {
 
 public:
 
-    double obliczPodatek(double& kwota)
-    {
-        cout <<  (kwota * 0.02);
-        return 0;
+    double obliczPodatek(double& kwota){
+    
+        return (kwota * 0.02);
     }
 };
 
@@ -68,8 +64,7 @@ public:
     {
         double roznica = 0;
         roznica = kwota - 11128;
-        cout <<  (roznica * 0.05) + 333.90;
-        return 0;
+        return (roznica * 0.05) + 333.90;
     }
 };
 
@@ -79,8 +74,8 @@ public:
     
     double obliczPodatek(double& kwota)
     {
-        cout << (kwota * 0.23);
-        return 0;
+        
+        return (kwota * 0.23);
     }
 };
 
@@ -110,7 +105,7 @@ int main()
 
         pit obiekt;
 
-        obiekt.obliczPodatek(kwota);
+        cout << obiekt.obliczPodatek(kwota);
 
         break;
     }
@@ -119,7 +114,7 @@ int main()
 
         cit obiekt;
 
-        obiekt.obliczPodatek(kwota);
+        cout << obiekt.obliczPodatek(kwota);
 
         break;
     }
@@ -127,7 +122,7 @@ int main()
 
         spadek obiekt;
 
-        obiekt.obliczPodatek(kwota);
+        cout << obiekt.obliczPodatek(kwota);
 
         break;
     }
@@ -135,7 +130,7 @@ int main()
 
         vat obiekt;
 
-        obiekt.obliczPodatek(kwota);
+        cout << obiekt.obliczPodatek(kwota);
 
         break;
     }
