@@ -12,7 +12,7 @@ public:
 
 };
 
-class pit  {
+class pit : public podatek {
 
 public:
 
@@ -37,16 +37,12 @@ public:
 
         else {
 
-            double roznica = 0;
-
-            roznica = (kwota - 120000);
-
-            return (roznica * 0.32) + 10800;
+            return ((kwota - 120000) * 0.32) + 10800;
         }
     }
 };
 
-class cit  {
+class cit : public podatek {
 
 public:
 
@@ -56,19 +52,19 @@ public:
     }
 };
 
-class spadek {
+class spadek : public podatek {
 
 public:
 
     double obliczPodatek(double& kwota)
     {
-        double roznica = 0;
-        roznica = kwota - 11128;
-        return (roznica * 0.05) + 333.90;
+        double roznica = kwota - 11128;
+       
+        return ((kwota - 11128) * 0.05) + 333.90;
     }
 };
 
-class vat  {
+class vat : public podatek {
 
 public:
     
@@ -101,7 +97,7 @@ int main()
 
         pit obiekt;
 
-        cout << obiekt.obliczPodatek(kwota);
+        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
 
         break;
     }
@@ -110,7 +106,7 @@ int main()
 
         cit obiekt;
 
-        cout << obiekt.obliczPodatek(kwota);
+        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
 
         break;
     }
@@ -118,7 +114,7 @@ int main()
 
         spadek obiekt;
 
-        cout << obiekt.obliczPodatek(kwota);
+        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
 
         break;
     }
@@ -126,7 +122,7 @@ int main()
 
         vat obiekt;
 
-        cout << obiekt.obliczPodatek(kwota);
+        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
 
         break;
     }
