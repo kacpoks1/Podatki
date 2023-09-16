@@ -85,16 +85,12 @@ int main()
 
     double kwota;
     char typ;
-    double podatekPit;
-    double podatekCit;
-    double podatekSpadek;
-    double podatekVat;
     
     
     cout << "Z jakiej kwoty chcesz obliczyæ podatek? Wpisz: ";
     cin >> kwota;
 
-    cout << "Jaki podatek chcesz obliczyæ? PIT (p), CIT (c), Spadkowy (spd) czy VAT (v). Wpisz: ";
+    cout << "Jaki podatek chcesz obliczyæ? PIT (p), CIT (c), Spadkowy (s) czy VAT (v). Wpisz: ";
     cin >> typ;
      
 
