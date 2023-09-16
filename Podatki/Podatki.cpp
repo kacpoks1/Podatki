@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 class podatek {
 
 public:
@@ -88,40 +89,33 @@ int main()
     cout << "Jaki podatek chcesz obliczyæ? PIT (p), CIT (c), Spadkowy (s) czy VAT (v). Wpisz: ";
     cin >> typ;
      
+    podatek* obiektPodatku = nullptr;
 
 
     switch (typ)
     {
     case 'p': {
 
-        pit obiekt;
-
-        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
+        obiektPodatku = new pit();
 
         break;
     }
 
     case 'c': {
 
-        cit obiekt;
-
-        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
+        obiektPodatku = new cit();
 
         break;
     }
     case 's': {
 
-        spadek obiekt;
-
-        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
+        obiektPodatku = new spadek();
 
         break;
     }
     case 'v': {
 
-        vat obiekt;
-
-        cout << "Podatek wynosi: " << obiekt.obliczPodatek(kwota);
+        obiektPodatku = new vat();
 
         break;
     }
@@ -130,4 +124,13 @@ int main()
 
     }
 
+    if (obiektPodatku) {
+        cout << "Podatek wynosi: " << obiektPodatku->obliczPodatek(kwota) << endl;
+        delete obiektPodatku; 
+    }
+    else {
+        cout << "Nieprawid³owy wybór podatku." << endl;
+    }
+
+            return 0;
 }
